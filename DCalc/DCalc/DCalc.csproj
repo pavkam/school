@@ -1,0 +1,182 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C7F396F-EE47-4736-A7D0-DF724A9936C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DCalc</RootNamespace>
+    <AssemblyName>DCalc</AssemblyName>
+    <ApplicationIcon>client.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C2DPushGraph, Version=1.0.2933.42824, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\DirectoryAlgorithmCollection.cs" />
+    <Compile Include="Algorithms\IAlgorithmCollection.cs" />
+    <Compile Include="Algorithms\Tagger.cs" />
+    <Compile Include="Communication\ConnectionType.cs" />
+    <Compile Include="Communication\LocalServer.cs" />
+    <Compile Include="Communication\RemoteServer.cs" />
+    <Compile Include="Communication\ServerStatus.cs" />
+    <Compile Include="Communication\XmlStoredWorkSpace.cs" />
+    <Compile Include="UI\ConfigureAlgorithmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ConfigureAlgorithmForm.Designer.cs">
+      <DependentUpon>ConfigureAlgorithmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DCalcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DCalcForm.Designer.cs">
+      <DependentUpon>DCalcForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\ConfigureAlgorithmForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConfigureAlgorithmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DCalcForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DCalcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EditServerForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditServerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Communication\IServer.cs" />
+    <Compile Include="Communication\IWorkSpace.cs" />
+    <Compile Include="UI\EditServerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EditServerForm.Designer.cs">
+      <DependentUpon>EditServerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_exit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help_about.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools_options.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server_add.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server_remove.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_new.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_save.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_saveas.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\execution_configure_algorithm.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\execution_start.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\execution_stop.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\DynAlgorithm\bin\Debug\DynAlgorithm.dll">
+      <Link>AddIns\DynAlgorithm.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\EchoAlgorithm\bin\Debug\EchoAlgorithm.dll">
+      <Link>AddIns\EchoAlgorithm.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\MMatrixAlgorithm\bin\Debug\MMatrixAlgorithm.dll">
+      <Link>AddIns\MMatrixAlgorithm.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="C2DPushGraph.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="client.ico" />
+    <None Include="Resources\execution_options.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DCalcCore\DCalcCore.csproj">
+      <Project>{9707BBFF-3B51-46A4-91A8-EE6A7DCF5ED5}</Project>
+      <Name>DCalcCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

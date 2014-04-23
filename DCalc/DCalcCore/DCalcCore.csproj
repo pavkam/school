@@ -1,0 +1,103 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9707BBFF-3B51-46A4-91A8-EE6A7DCF5ED5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DCalcCore</RootNamespace>
+    <AssemblyName>DCalcCore</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithm\IAlgorithm.cs" />
+    <Compile Include="Algorithm\IScript.cs" />
+    <Compile Include="IDispatcher.cs" />
+    <Compile Include="LoadBalancers\PredictiveLoadBalancer.cs" />
+    <Compile Include="LoadBalancers\RRLoadBalancer.cs" />
+    <Compile Include="LoadBalancers\ILoadBalancer.cs" />
+    <Compile Include="Remoting\Common\XPortCommBody.cs" />
+    <Compile Include="Remoting\Common\XPortCommBodyDeserializer.cs" />
+    <Compile Include="Remoting\Common\XPortCommBodySerializer.cs" />
+    <Compile Include="Remoting\Common\DataDeserializer.cs" />
+    <Compile Include="Remoting\Common\DataSerializer.cs" />
+    <Compile Include="Remoting\Common\ConsumableCollection.cs" />
+    <Compile Include="Remoting\Common\ScriptDeserializer.cs" />
+    <Compile Include="Remoting\Common\ScriptSerializer.cs" />
+    <Compile Include="Remoting\Common\TransparentAlgorithm.cs" />
+    <Compile Include="Assemblers\IScriptAssembler.cs" />
+    <Compile Include="Algorithm\IAlgorithmProvider.cs" />
+    <Compile Include="Remoting\Tcp\TcpContext.cs" />
+    <Compile Include="Remoting\Tcp\TcpRemoteGateServer.cs" />
+    <Compile Include="Remoting\Tcp\TcpRemoteGateClient.cs" />
+    <Compile Include="Remoting\Tcp\TcpRequest.cs" />
+    <Compile Include="Utilities\ScriptQueueEventHandler.cs" />
+    <Compile Include="Utilities\ScriptQueueEventArgs.cs" />
+    <Compile Include="Utilities\ScalarSet.cs" />
+    <Compile Include="Assemblers\CSharpScriptAssembler.cs" />
+    <Compile Include="Dispatcher.cs" />
+    <Compile Include="DispatchMode.cs" />
+    <Compile Include="Assemblers\ICompiledScript.cs" />
+    <Compile Include="Assemblers\DotNetCompiledScript.cs" />
+    <Compile Include="Remoting\IRemoteGateClient.cs" />
+    <Compile Include="Remoting\Http\HttpRemoteGateClient.cs" />
+    <Compile Include="LoadBalancers\FairLoadBalancer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remoting\Http\HttpRemoteGateServer.cs" />
+    <Compile Include="Remoting\IRemoteGateServer.cs" />
+    <Compile Include="Runners\IRunner.cs" />
+    <Compile Include="Runners\LocalMachineRunner.cs" />
+    <Compile Include="Threading\IWorkQueue.cs" />
+    <Compile Include="Utilities\ConnectionEventArgs.cs" />
+    <Compile Include="Utilities\ConnectionEventHandler.cs" />
+    <Compile Include="Utilities\SetUpdateEventHandler.cs" />
+    <Compile Include="Utilities\SetUpdateEventArgs.cs" />
+    <Compile Include="Utilities\DataPlanner.cs" />
+    <Compile Include="Threading\WorkQueueItem.cs" />
+    <Compile Include="Utilities\ProgressEventArgs.cs" />
+    <Compile Include="Utilities\ProgressEventHandler.cs" />
+    <Compile Include="Utilities\QueueEventArgs.cs" />
+    <Compile Include="Utilities\QueueEventHandler.cs" />
+    <Compile Include="Runners\RemoteMachineRunner.cs" />
+    <Compile Include="Threading\ThreadedWorkQueue.cs" />
+    <Compile Include="Threading\WorkQueue.cs" />
+    <Compile Include="Remoting\Common\UniqueCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DCalcDynHelper\DCalcDynHelper.csproj">
+      <Project>{E3C4690B-AB07-4B98-BB59-CB628E25852B}</Project>
+      <Name>DCalcDynHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
